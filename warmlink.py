@@ -44,9 +44,9 @@ def processAsset(asset):
             if (filter_88x31(tmpfile)):
                 print(f'valid 88x31, running checksums')
                 with open(tmpfile, "rb") as f:
-                    tmphash = hashlib.file_digest(f, "sha256").hexdigest()
+                    tmphash = hashlib.file_digest(f, "sha512").hexdigest()
                 with open(os.path.join(project_path, asset['dest']), "rb") as f:
-                    prodhash = hashlib.file_digest(f, "sha256").hexdigest()
+                    prodhash = hashlib.file_digest(f, "sha512").hexdigest()
 
                 if (tmphash != prodhash):
                     print("sum mismatch, replacing with updated asset")
