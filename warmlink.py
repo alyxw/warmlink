@@ -59,6 +59,7 @@ def processAsset(asset):
                     print("no update needed")
             else:
                 print('invalid 88x31 :(')
+            os.remove(tmpfile)
     except requests.exceptions.RequestException as e:
         print(f"Error downloading file: {e}")
 
