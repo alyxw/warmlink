@@ -2,16 +2,22 @@ import yaml
 import requests
 import os
 from PIL import Image
+import hashlib
+import subprocess
+
+project_path = '/home/alyx/build/alyxsh/'
+
+subprocess.run(['git', 'pull'], cwd=project_path)
+subprocess.run(['hugo', '--cleanDestinationDir'], cwd=project_path)
 
 file_path = 'assets.yaml'
-useragent = {"User-Agent": "python3 warmlink running for alyx.sh; https://github.com/alyxw/warmlink"}
+useragent = {"User-Agent": "python3 warmlink; https://github.com/alyxw/warmlink"}
 
 
 def filter_88x31(tmpfile):
     try:
         if not os.path.exists(tmpfile):
             return False
-
         with Image.open(tmpfile) as img:
             width, height = img.size
             if width == 88 and height == 31:
@@ -36,14 +42,21 @@ def processAsset(asset):
         if (asset['validation'] == '88x31'):
             print('file requires 88x31 validation')
             if (filter_88x31(tmpfile)):
-                print(f'valid 88x31')
+                print(f'valid 88x31, running checksums')
+                with open(tmpfile, "rb") as f:
+                    tmphash = hashlib.file_digest(f, "sha256").hexdigest()
+                with open(os.path.join(project_path, asset['dest']), "rb") as f:
+                    prodhash = hashlib.file_digest(f, "sha256").hexdigest()
 
-
-
-
-
-
-
+                if (tmphash != prodhash):
+                    print("sum mismatch, replacing with updated asset")
+                    os.replace(tmpfile, os.path.join(project_path, asset['dest']))
+                    subprocess.run(['hugo'], cwd=project_path)
+                    subprocess.run(['git', 'add', 'static/', 'public/'], cwd=project_path)
+                    subprocess.run(['git', 'commit', '-m', f'Update {asset["dest"]}'], cwd=project_path)
+                    subprocess.run(['git', 'push', 'origin', f'master'], cwd=project_path)
+                else:
+                    print("no update needed")
             else:
                 print('invalid 88x31 :(')
     except requests.exceptions.RequestException as e:
