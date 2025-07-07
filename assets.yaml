@@ -1,0 +1,53 @@
+---
+assets:
+  - source: https://adryd.com/static/buttons/adryd.png
+    dest: static/images/88x31/adryd.png
+    validation: 88x31
+  - source: https://astrid.smith.seattle.wa.us/img/the-astrid-zone-88x31.png
+    dest: static/images/88x31/the-astrid-zone-88x31.png
+    validation: 88x31
+  - source: https://erysdren.me/images/erysdren_88x31.png
+    dest: static/images/88x31/erysdren.png
+    validation: 88x31
+  - source: https://famfo.xyz/banner/famfo_anim.gif
+    dest: static/images/88x31/famfo_anim.gif
+    validation: 88x31
+  - source: https://atomicmaya.me/assets/images/88x31/personal.png
+    dest: static/images/88x31/atomicmaya.png
+    validation: 88x31
+  - source: https://miakizz.quest/assets/badges/miakizz.png
+    dest: static/images/88x31/miakizz.png
+    validation: 88x31
+  - source: https://moonbase.lgbt/88x31/moonbase.gif
+    dest: static/images/88x31/moonbase.gif
+    validation: 88x31
+  - source: https://mxashlynn.gay/buttons/88x31-mxashlynn-dark.png
+    dest: static/images/88x31/88x31-mxashlynn-dark.png
+    validation: 88x31
+  - source: https://noelle.dev/assets/images/buttons/static-dark.png
+    dest: static/images/88x31/noelledev-dark.png
+    validation: 88x31
+  - source: https://princess.software/badges/softwareheart.png
+    dest: static/images/88x31/princesssoftwareheart.png
+    validation: 88x31
+  - source: https://placeviolette.net/88x31/placeviolette.png
+    dest: static/images/88x31/placeviolette.png
+    validation: 88x31
+  - source: https://pixilic.com/wp-content/uploads/2023/11/hunter.png
+    dest: static/images/88x31/hunter.png
+    validation: 88x31
+  - source: https://www.theresnotime.co.uk/button.png
+    dest: static/images/88x31/theresnotime.png
+    validation: 88x31
+  - source: https://files.ribboncable.net/badges/ribboncable_88x31_logo.gif
+    dest: static/images/88x31/ribboncable_88x31_logo.gif
+    validation: 88x31
+  - source: https://tris.fyi/static/badges/tris.png
+    dest: static/images/88x31/tris.png
+    validation: 88x31
+  - source: https://query.44203.online/88x31/query.44203.online.png
+    dest: static/images/88x31/query.44203.online.png
+    validation: 88x31
+  - source: https://999eagle.moe/images/88x31/440729.png
+    dest: static/images/88x31/440729.png
+    validation: 88x31
