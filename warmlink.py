@@ -15,6 +15,8 @@ except:
     print("nothing to remove")
     os.mkdir(project_path)
 subprocess.run(['git', 'clone','git@git.en0.io:alyx/alyxsh.git','.'], cwd=project_path)
+subprocess.run(['git', 'confg','user.name','alyxbot'], cwd=project_path)
+subprocess.run(['git', 'confg','user.email','hello@alyx.sh'], cwd=project_path)
 subprocess.run(['hugo', '--cleanDestinationDir'], cwd=project_path)
 
 file_path = 'assets.yaml'
