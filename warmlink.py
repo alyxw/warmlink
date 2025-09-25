@@ -4,10 +4,17 @@ import os
 from PIL import Image
 import hashlib
 import subprocess
+import shutil
+project_path = '/home/alyx/blogbuild/alyxsh/'
 
-project_path = '/home/alyx/build/alyxsh/'
 
-subprocess.run(['git', 'pull'], cwd=project_path)
+try:
+    shutil.rmtree(project_path)
+    os.mkdir(project_path)
+except:
+    print("nothing to remove")
+    os.mkdir(project_path)
+subprocess.run(['git', 'clone','git@git.en0.io:alyx/alyxsh.git','.'], cwd=project_path)
 subprocess.run(['hugo', '--cleanDestinationDir'], cwd=project_path)
 
 file_path = 'assets.yaml'
