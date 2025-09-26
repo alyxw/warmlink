@@ -5,7 +5,7 @@ from PIL import Image
 import hashlib
 import subprocess
 import shutil
-project_path = '/home/alyx/blogbuild/alyxsh/'
+project_path = '/home/hugo-build/blogbuild/alyxsh/'
 
 
 try:
