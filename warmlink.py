@@ -19,7 +19,7 @@ subprocess.run(['git', 'confg','user.name','alyxbot'], cwd=project_path)
 subprocess.run(['git', 'confg','user.email','hello@alyx.sh'], cwd=project_path)
 subprocess.run(['hugo', '--cleanDestinationDir'], cwd=project_path)
 
-file_path = 'assets.yaml'
+file_path = f'{project_path}/warmlink-assets.yaml'
 useragent = {"User-Agent": "python3 warmlink; https://github.com/alyxw/warmlink"}
 
 
