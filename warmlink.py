@@ -5,8 +5,8 @@ from PIL import Image
 import hashlib
 import subprocess
 import shutil
-project_path = '/home/hugo-build/blogbuild/alyxsh/'
 
+project_path = '/home/hugo-build/blogbuild/alyxsh/'
 
 try:
     shutil.rmtree(project_path)
@@ -14,9 +14,9 @@ try:
 except:
     print("nothing to remove")
     os.mkdir(project_path)
-subprocess.run(['git', 'clone','git@git.en0.io:alyx/alyxsh.git','.'], cwd=project_path)
-subprocess.run(['git', 'config','user.name','alyxbot'], cwd=project_path)
-subprocess.run(['git', 'config','user.email','hello@alyx.sh'], cwd=project_path)
+subprocess.run(['git', 'clone', 'git@git.en0.io:alyx/alyxsh.git', '.'], cwd=project_path)
+subprocess.run(['git', 'config', 'user.name', 'alyxbot'], cwd=project_path)
+subprocess.run(['git', 'config', 'user.email', 'hello@alyx.sh'], cwd=project_path)
 subprocess.run(['hugo', '--cleanDestinationDir'], cwd=project_path)
 
 file_path = f'{project_path}/warmlink-assets.yaml'
@@ -63,7 +63,6 @@ def processAsset(asset):
                     subprocess.run(['hugo'], cwd=project_path)
                     subprocess.run(['git', 'add', 'static/', 'public/'], cwd=project_path)
                     subprocess.run(['git', 'commit', '-m', f'Update {asset["dest"]}'], cwd=project_path)
-                    subprocess.run(['git', 'push', 'origin', f'master'], cwd=project_path)
                 else:
                     print("no update needed")
             else:
@@ -79,6 +78,10 @@ print("YAML data loaded successfully")
 for asset in data['assets']:
     processAsset(asset)
 
+subprocess.run(['hugo'], cwd=project_path)
+subprocess.run(['git', 'add', 'public/'], cwd=project_path)
+subprocess.run(['git', 'commit', '-m', f'Build output changed'], cwd=project_path)
+subprocess.run(['git', 'push', 'origin', f'main'], cwd=project_path)
 # except FileNotFoundError:
 #     print(f"Error: The file '{file_path}' was not found.")
 # except yaml.YAMLError as e:
