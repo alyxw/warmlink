@@ -78,7 +78,6 @@ print("YAML data loaded successfully")
 for asset in data['assets']:
     processAsset(asset)
 
-subprocess.run(['hugo'], cwd=project_path)
 subprocess.run(['git', 'add', 'public/'], cwd=project_path)
 subprocess.run(['git', 'commit', '-m', f'Build output changed'], cwd=project_path)
 subprocess.run(['git', 'push', 'origin', f'main'], cwd=project_path)
